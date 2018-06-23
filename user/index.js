@@ -1,5 +1,5 @@
-const lang = require('../db');
-lang.connect();
+const db = require('db');
+
 class Index {
 
     constructor(name) {
@@ -7,7 +7,7 @@ class Index {
     }
 
     hello (who) {
-        console.log(lang.getPhrases('Hello') + ' ' + lang.getPhrases('Name'));
+        console.log(db.getPhrases('Hello') + ' ' + db.getPhrases('name'));
     }
 
 }
