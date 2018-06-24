@@ -12,9 +12,9 @@ const server = new http.Server(function (req, res) {
 
     let parsedUrl = url.parse(req.url, true);
 
-    if (parsedUrl.pathname === '/echo' && parsedUrl.query.message === 'Martin') {
+    if (parsedUrl.pathname === '/echo' && parsedUrl.query.message === 'Martin' && req.method === 'GET') {
 
-        res.end(parsedUrl.query.message);
+        res.end('Barev ' + parsedUrl.query.message);
 
     } else if (parsedUrl.pathname === '/favicon.ico') {
         res.end();
