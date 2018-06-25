@@ -18,9 +18,9 @@ const server = new http.Server(function (req, res) {
         res.setHeader('cache-control', 'no-cache'); // disable cache
 
         // second method , called immediately.
-        // res.writeHead(200, "OK", {"Cache-control": "no-cache"});
+        res.writeHead(200, "OK", {"Cache-control": "no-cache"});
 
-        res.end('Barev ' + parsedUrl.query.message);
+        res.end('Hajox ' + parsedUrl.query.message);
 
     } else if (parsedUrl.pathname === '/favicon.ico') {
         res.end();
