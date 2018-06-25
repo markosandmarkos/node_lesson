@@ -24,6 +24,7 @@ const fs = require('fs');
 /**
  * Async example
  * */
+
 http.createServer(function (req, res) {
 
     if (req.url === '/') {
@@ -37,7 +38,7 @@ http.createServer(function (req, res) {
             }
 
             res.end(info);
-            
+
         });
     }
 
