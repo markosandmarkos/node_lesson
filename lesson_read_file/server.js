@@ -5,6 +5,8 @@ const path = require('path');
 
 const ROOT = __dirname + "/public";
 
+const err404 = 'Error 404: file not found';
+
 http.createServer(function (req, res) {
 
     if (!checkAccess(req)) {
@@ -27,7 +29,7 @@ function sendFileSecret(filePath, res) {
         filePath = decodeURIComponent(filePath); // encoding example. %D1%8F -> rus Я
     } catch (e) {
         res.statusCode = 404;
-        res.end("File not found");
+        res.end(err404);
         return false;
     }
 
@@ -42,14 +44,14 @@ function sendFileSecret(filePath, res) {
 
     if (filePath.indexOf(ROOT) !== 0) {
         res.statusCode = 404;
-        res.end("File not found");
+        res.end(err404);
         return false;
     }
 
     fs.stat(filePath, function (err, stats) { // if file empty then fs.stat returns err
         if (err || !stats.isFile()) { // if its file
             res.statusCode = 404;
-            res.end("File not found");
+            res.end(err404);
             return false;
         }
     });
